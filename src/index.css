@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+/* ── Apothy Beauty palette — every color lives here, never hardcoded ── */
+:root {
+  --color-cream: #f3ecdf;
+  --color-sage: #a8bba2;
+  --color-sage-deep: #5f7a5a;
+  --color-brown: #6b4f3a;
+  --color-brown-deep: #4a3628;
+  --color-offwhite: #faf7f1;
+  --color-text: #3a322a;
+  --color-text-soft: #6e6357;
+  --color-accent: #c2783f;
+  --color-accent-soft: #e8c9a8;
+  --color-whatsapp: #25d366;
+  --color-sale: #b8503c;
+  --color-star: #d9a441;
+  --color-overlay: rgba(250, 247, 241, 0.82);
+  --color-overlay-dark: rgba(58, 50, 42, 0.45);
+  --color-card: rgba(250, 247, 241, 0.92);
+  --color-border: rgba(107, 79, 58, 0.14);
+  --color-shadow: rgba(74, 54, 40, 0.1);
+}
+
+/* `inline` makes utilities point at the :root variables above without re-declaring them */
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-sage: var(--color-sage);
+  --color-sage-deep: var(--color-sage-deep);
+  --color-brown: var(--color-brown);
+  --color-brown-deep: var(--color-brown-deep);
+  --color-offwhite: var(--color-offwhite);
+  --color-text: var(--color-text);
+  --color-text-soft: var(--color-text-soft);
+  --color-accent: var(--color-accent);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-whatsapp: var(--color-whatsapp);
+  --color-sale: var(--color-sale);
+  --color-star: var(--color-star);
+  --color-card: var(--color-card);
+  --color-border: var(--color-border);
+  --color-shadow: var(--color-shadow);
+
+  --font-cairo: 'Cairo', sans-serif;
+  --font-nunito: 'Nunito', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-offwhite);
+  font-family: var(--font-nunito);
+}
+
+html[lang='ar'] body {
+  font-family: var(--font-cairo);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

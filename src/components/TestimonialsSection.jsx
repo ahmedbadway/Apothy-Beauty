@@ -1,0 +1,63 @@
+import { motion, useReducedMotion } from 'motion/react'
+import { useLanguage } from '../context/LanguageContext'
+
+function StarRating({ rating }) {
+  return (
+    <div className="mb-3 flex gap-1" role="img" aria-label={`${rating} / 5`}>
+      {[1, 2, 3, 4, 5].map((star) => (
+        <svg key={star} width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2l3 6.6 7 .9-5.2 4.9 1.4 7L12 18l-6.2 3.4 1.4-7L2 9.5l7-.9z"
+            fill={star <= rating ? 'var(--color-star)' : 'var(--color-border)'}
+          />
+        </svg>
+      ))}
+    </div>
+  )
+}
+
+export default function TestimonialsSection() {
+  const { t } = useLanguage()
+  const reducedMotion = useReducedMotion()
+
+  return (
+    <section className="relative px-4 py-20 sm:py-28">
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: 'var(--color-overlay)' }}
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-5xl">
+        <motion.div
+          initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 28 }}
+          whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="mb-12 text-center"
+        >
+          <h2 className="mb-3 text-3xl font-extrabold text-brown-deep sm:text-4xl">
+            {t.testimonials.title}
+          </h2>
+          <p className="text-lg text-text-soft">{t.testimonials.subtitle}</p>
+        </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {t.testimonials.items.map((review, index) => (
+            <motion.blockquote
+              key={review.name}
+              initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 28 }}
+              whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.55, delay: index * 0.12, ease: 'easeOut' }}
+              className="flex flex-col rounded-3xl border border-border bg-card p-7 shadow-lg"
+            >
+              <StarRating rating={review.rating} />
+              <p className="flex-1 leading-relaxed text-text">“{review.quote}”</p>
+              <footer className="mt-4 font-bold text-sage-deep">— {review.name}</footer>
+            </motion.blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
