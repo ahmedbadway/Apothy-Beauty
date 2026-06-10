@@ -16,10 +16,8 @@
   --color-sale: #b8503c;
   --color-star: #d9a441;
   --color-overlay: rgba(250, 247, 241, 0.82);
-  --color-overlay-dark: rgba(58, 50, 42, 0.45);
   --color-card: rgba(250, 247, 241, 0.92);
   --color-border: rgba(107, 79, 58, 0.14);
-  --color-shadow: rgba(74, 54, 40, 0.1);
 }
 
 /* `inline` makes utilities point at the :root variables above without re-declaring them */
@@ -39,7 +37,6 @@
   --color-star: var(--color-star);
   --color-card: var(--color-card);
   --color-border: var(--color-border);
-  --color-shadow: var(--color-shadow);
 
   --font-cairo: 'Cairo', sans-serif;
   --font-nunito: 'Nunito', sans-serif;
