@@ -91,14 +91,16 @@ html[lang='ar'] .display {
   border: 1px solid var(--color-border);
 }
 
-/* Global legibility shadows — every text element stays readable over the
-   video regardless of the frame behind it */
+/* All text is white with a dark halo so it stays readable over the video
+   regardless of the frame behind it. These element rules are unlayered, so
+   they override Tailwind's text-color utilities on every component. */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  color: #ffffff;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
@@ -106,7 +108,9 @@ p,
 span,
 a,
 li,
-button {
+button,
+s {
+  color: #ffffff;
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.8), 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
