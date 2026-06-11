@@ -15,9 +15,15 @@
   --color-whatsapp: #25d366;
   --color-sale: #b8503c;
   --color-star: #d9a441;
-  --color-overlay: rgba(250, 247, 241, 0.82);
-  --color-card: rgba(250, 247, 241, 0.92);
+  /* Lighter scrim so the background video reads through without washing out.
+     Sections that hold long text add a soft top-gradient for legibility. */
+  --color-overlay: rgba(250, 247, 241, 0.5);
+  --color-card: rgba(250, 247, 241, 0.94);
   --color-border: rgba(107, 79, 58, 0.14);
+
+  /* Emil Kowalski easing curves — stronger than the built-in CSS easings */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* `inline` makes utilities point at the :root variables above without re-declaring them */
@@ -54,6 +60,38 @@ body {
 
 html[lang='ar'] body {
   font-family: var(--font-cairo);
+}
+
+/* ── Display typography ───────────────────────────────────────────────
+   Headlines get weight and presence. Latin display tightens tracking and
+   line-height; Arabic (Cairo) keeps natural spacing — negative tracking
+   breaks connected Arabic letterforms and clips diacritics. */
+.display {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+html[lang='ar'] .display {
+  letter-spacing: normal;
+  line-height: 1.22;
+}
+
+/* Cap measure on long-form copy for comfortable reading */
+.measure {
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+/* Soft top scrim for text-heavy hero/sections over the video */
+.scrim-soft {
+  background: linear-gradient(
+    180deg,
+    rgba(250, 247, 241, 0.72) 0%,
+    rgba(250, 247, 241, 0.42) 45%,
+    rgba(250, 247, 241, 0.6) 100%
+  );
 }
 
 /* Visible keyboard focus everywhere */

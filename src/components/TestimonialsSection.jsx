@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { useLanguage } from '../context/LanguageContext'
+import { reveal, EASE_OUT_QUINT } from '../config/motion'
 
 function StarRating({ rating }) {
   return (
@@ -28,14 +29,8 @@ export default function TestimonialsSection() {
         aria-hidden="true"
       />
       <div className="relative mx-auto max-w-5xl">
-        <motion.div
-          initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 28 }}
-          whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="mb-12 text-center"
-        >
-          <h2 className="mb-3 text-3xl font-extrabold text-brown-deep sm:text-4xl">
+        <motion.div {...reveal(reducedMotion)} className="mb-12 text-center">
+          <h2 className="display mb-3 text-3xl text-brown-deep sm:text-4xl">
             {t.testimonials.title}
           </h2>
           <p className="text-lg text-text-soft">{t.testimonials.subtitle}</p>
@@ -48,7 +43,7 @@ export default function TestimonialsSection() {
               initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 28 }}
               whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.55, delay: index * 0.12, ease: 'easeOut' }}
+              transition={{ duration: 0.55, delay: index * 0.1, ease: EASE_OUT_QUINT }}
               className="flex flex-col rounded-3xl border border-border bg-card p-7 shadow-lg"
             >
               <StarRating rating={review.rating} />

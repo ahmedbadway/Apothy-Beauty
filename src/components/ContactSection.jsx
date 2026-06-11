@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { useLanguage } from '../context/LanguageContext'
 import { buildWhatsAppLink, SOCIAL_LINKS } from '../config/site'
+import { reveal, EASE_OUT_EXPO } from '../config/motion'
 
 function InstagramIcon() {
   return (
@@ -44,14 +45,8 @@ export default function ContactSection() {
         style={{ backgroundColor: 'var(--color-overlay)' }}
         aria-hidden="true"
       />
-      <motion.div
-        initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 28 }}
-        whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="relative mx-auto max-w-2xl text-center"
-      >
-        <h2 className="mb-3 text-3xl font-extrabold text-brown-deep sm:text-4xl">
+      <motion.div {...reveal(reducedMotion)} className="relative mx-auto max-w-2xl text-center">
+        <h2 className="display mb-3 text-3xl text-brown-deep sm:text-4xl">
           {t.contact.title}
         </h2>
         <p className="mb-10 text-lg text-text-soft">{t.contact.subtitle}</p>
@@ -62,6 +57,7 @@ export default function ContactSection() {
           rel="noopener noreferrer"
           whileHover={reducedMotion ? undefined : { scale: 1.04, y: -2 }}
           whileTap={reducedMotion ? undefined : { scale: 0.97 }}
+          transition={{ duration: 0.18, ease: EASE_OUT_EXPO }}
           className="mb-10 inline-flex items-center gap-3 rounded-full bg-whatsapp px-8 py-4 text-lg font-bold text-offwhite shadow-lg"
         >
           <WhatsAppIcon />
