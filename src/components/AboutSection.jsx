@@ -8,11 +8,6 @@ export default function AboutSection() {
 
   return (
     <section id="about" className="relative px-4 py-20 sm:py-28">
-      <div
-        className="absolute inset-0"
-        style={{ backgroundColor: 'var(--color-overlay)' }}
-        aria-hidden="true"
-      />
       <motion.div {...reveal(reducedMotion)} className="relative mx-auto max-w-3xl text-center">
         <h2 className="display on-glass mb-8 text-3xl text-brown-deep sm:text-4xl">
           {t.about.title}

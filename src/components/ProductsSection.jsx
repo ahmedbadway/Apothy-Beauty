@@ -10,11 +10,6 @@ export default function ProductsSection() {
 
   return (
     <section id="products" className="relative px-4 py-20 sm:py-28">
-      <div
-        className="absolute inset-0"
-        style={{ backgroundColor: 'var(--color-overlay)' }}
-        aria-hidden="true"
-      />
       <div className="relative mx-auto max-w-6xl">
         <motion.div {...reveal(reducedMotion)} className="mb-12 text-center">
           <h2 className="display on-glass mb-3 text-3xl text-brown-deep sm:text-4xl">

@@ -25,11 +25,6 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative flex min-h-svh items-center justify-center px-4">
-      <div
-        className="absolute inset-0"
-        style={{ backgroundColor: 'var(--color-overlay)' }}
-        aria-hidden="true"
-      />
       <motion.div
         variants={container}
         initial="hidden"

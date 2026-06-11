@@ -16,12 +16,10 @@
   --color-whatsapp: #25d366;
   --color-sale: #b8503c;
   --color-star: #d9a441;
-  /* Glassmorphism tokens — video stays clearly visible behind everything */
-  --color-overlay: rgba(250, 247, 241, 0.12);
-  --color-card: rgba(255, 255, 255, 0.12);
-  --color-border: rgba(255, 255, 255, 0.25);
-  --glass-blur: blur(12px) saturate(180%);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  /* Fully transparent surfaces — the video shows through 100% everywhere.
+     Cards are outlined by a subtle border only. */
+  --color-card: transparent;
+  --color-border: rgba(255, 255, 255, 0.2);
 
   /* Emil Kowalski easing curves — stronger than the built-in CSS easings */
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
@@ -86,29 +84,11 @@ html[lang='ar'] .display {
   text-wrap: pretty;
 }
 
-/* ── Glassmorphism surface ────────────────────────────────────────────
-   One class, driven by the :root tokens above. Solid fallback when the
-   user asks for reduced transparency or the browser lacks backdrop-filter. */
+/* ── Transparent surface ──────────────────────────────────────────────
+   Fully see-through: border only, driven by the :root tokens above. */
 .glass {
   background: var(--color-card);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
   border: 1px solid var(--color-border);
-  box-shadow: var(--glass-shadow);
-}
-
-@supports not (backdrop-filter: blur(1px)) {
-  .glass {
-    background: rgba(250, 247, 241, 0.9);
-  }
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .glass {
-    background: rgba(250, 247, 241, 0.92);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-  }
 }
 
 /* Legibility halo for text sitting directly on the video */
