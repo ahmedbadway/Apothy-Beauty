@@ -46,10 +46,10 @@ export default function ContactSection() {
         aria-hidden="true"
       />
       <motion.div {...reveal(reducedMotion)} className="relative mx-auto max-w-2xl text-center">
-        <h2 className="display mb-3 text-3xl text-brown-deep sm:text-4xl">
+        <h2 className="display on-glass mb-3 text-3xl text-brown-deep sm:text-4xl">
           {t.contact.title}
         </h2>
-        <p className="mb-10 text-lg text-text-soft">{t.contact.subtitle}</p>
+        <p className="on-glass mb-10 text-lg text-text-soft">{t.contact.subtitle}</p>
 
         <motion.a
           href={buildWhatsAppLink(t.contact.whatsappMessage)}
@@ -74,7 +74,7 @@ export default function ContactSection() {
               rel="noopener noreferrer"
               whileHover={reducedMotion ? undefined : { y: -3 }}
               whileTap={reducedMotion ? undefined : { scale: 0.95 }}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 font-semibold text-brown transition-colors duration-200 hover:text-accent"
+              className="glass inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-semibold text-brown-deep transition-colors duration-200 hover:text-accent"
             >
               {social.icon}
               {social.label}

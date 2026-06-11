@@ -14,10 +14,10 @@ export default function AboutSection() {
         aria-hidden="true"
       />
       <motion.div {...reveal(reducedMotion)} className="relative mx-auto max-w-3xl text-center">
-        <h2 className="display mb-8 text-3xl text-brown-deep sm:text-4xl">
+        <h2 className="display on-glass mb-8 text-3xl text-brown-deep sm:text-4xl">
           {t.about.title}
         </h2>
-        <div className="rounded-3xl border border-border bg-card p-8 shadow-lg sm:p-10">
+        <div className="glass rounded-3xl p-8 sm:p-10">
           <p className="measure mx-auto mb-5 text-lg leading-relaxed text-text">
             {t.about.story1}
           </p>

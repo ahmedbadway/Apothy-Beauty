@@ -10,7 +10,7 @@ export default function LanguageToggle() {
       type="button"
       onClick={toggleLang}
       whileTap={reducedMotion ? undefined : { scale: 0.94 }}
-      className="rounded-full border border-border bg-card px-4 py-1.5 text-sm font-semibold text-brown transition-colors duration-200 hover:bg-accent-soft"
+      className="glass rounded-full px-4 py-1.5 text-sm font-semibold text-brown-deep transition-colors duration-200 hover:text-accent"
       aria-label={lang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية'}
     >
       {lang === 'ar' ? 'EN' : 'عربي'}

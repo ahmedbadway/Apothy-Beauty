@@ -30,10 +30,10 @@ export default function TestimonialsSection() {
       />
       <div className="relative mx-auto max-w-5xl">
         <motion.div {...reveal(reducedMotion)} className="mb-12 text-center">
-          <h2 className="display mb-3 text-3xl text-brown-deep sm:text-4xl">
+          <h2 className="display on-glass mb-3 text-3xl text-brown-deep sm:text-4xl">
             {t.testimonials.title}
           </h2>
-          <p className="text-lg text-text-soft">{t.testimonials.subtitle}</p>
+          <p className="on-glass text-lg text-text-soft">{t.testimonials.subtitle}</p>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -44,7 +44,7 @@ export default function TestimonialsSection() {
               whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.55, delay: index * 0.1, ease: EASE_OUT_QUINT }}
-              className="flex flex-col rounded-3xl border border-border bg-card p-7 shadow-lg"
+              className="glass flex flex-col rounded-3xl p-7"
             >
               <StarRating rating={review.rating} />
               <p className="flex-1 leading-relaxed text-text">“{review.quote}”</p>

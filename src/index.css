@@ -9,17 +9,19 @@
   --color-brown-deep: #4a3628;
   --color-offwhite: #faf7f1;
   --color-text: #3a322a;
-  --color-text-soft: #6e6357;
+  /* darker than before — soft gray-brown washed out on the busy video */
+  --color-text-soft: #564c41;
   --color-accent: #c2783f;
   --color-accent-soft: #e8c9a8;
   --color-whatsapp: #25d366;
   --color-sale: #b8503c;
   --color-star: #d9a441;
-  /* Lighter scrim so the background video reads through without washing out.
-     Sections that hold long text add a soft top-gradient for legibility. */
-  --color-overlay: rgba(250, 247, 241, 0.5);
-  --color-card: rgba(250, 247, 241, 0.94);
-  --color-border: rgba(107, 79, 58, 0.14);
+  /* Glassmorphism tokens — video stays clearly visible behind everything */
+  --color-overlay: rgba(250, 247, 241, 0.12);
+  --color-card: rgba(255, 255, 255, 0.12);
+  --color-border: rgba(255, 255, 255, 0.25);
+  --glass-blur: blur(12px) saturate(180%);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
   /* Emil Kowalski easing curves — stronger than the built-in CSS easings */
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
@@ -84,14 +86,34 @@ html[lang='ar'] .display {
   text-wrap: pretty;
 }
 
-/* Soft top scrim for text-heavy hero/sections over the video */
-.scrim-soft {
-  background: linear-gradient(
-    180deg,
-    rgba(250, 247, 241, 0.72) 0%,
-    rgba(250, 247, 241, 0.42) 45%,
-    rgba(250, 247, 241, 0.6) 100%
-  );
+/* ── Glassmorphism surface ────────────────────────────────────────────
+   One class, driven by the :root tokens above. Solid fallback when the
+   user asks for reduced transparency or the browser lacks backdrop-filter. */
+.glass {
+  background: var(--color-card);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--glass-shadow);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .glass {
+    background: rgba(250, 247, 241, 0.9);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: rgba(250, 247, 241, 0.92);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Legibility halo for text sitting directly on the video */
+.on-glass {
+  text-shadow: 0 1px 2px rgba(250, 247, 241, 0.55), 0 0 18px rgba(250, 247, 241, 0.4);
 }
 
 /* Visible keyboard focus everywhere */

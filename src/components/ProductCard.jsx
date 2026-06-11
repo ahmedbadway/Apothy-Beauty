@@ -15,7 +15,7 @@ export default function ProductCard({ product, index }) {
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: EASE_OUT_QUINT }}
       whileHover={reducedMotion ? undefined : { y: -6 }}
-      className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition-shadow duration-300 hover:shadow-xl"
+      className="glass group relative flex flex-col overflow-hidden rounded-3xl"
     >
       {onSale && (
         <span className="absolute top-4 start-4 z-10 rounded-full bg-sale px-3 py-1 text-sm font-bold text-offwhite shadow-sm">
@@ -23,12 +23,13 @@ export default function ProductCard({ product, index }) {
         </span>
       )}
 
-      <div className="aspect-4/3 w-full overflow-hidden bg-cream">
+      {/* transparent-background product photo floats directly on the glass */}
+      <div className="aspect-4/3 w-full overflow-hidden p-4">
         <img
           src={`${import.meta.env.BASE_URL}${product.image}`}
           alt={product.name[lang]}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+          className="h-full w-full object-contain drop-shadow-lg transition-transform duration-500 ease-out group-hover:scale-[1.06]"
         />
       </div>
 

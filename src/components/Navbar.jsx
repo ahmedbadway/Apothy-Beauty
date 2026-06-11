@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 z-40 w-full transition-all duration-300 ${
-        scrolled ? 'bg-card shadow-md backdrop-blur-md' : 'bg-transparent'
+        scrolled ? 'glass' : 'bg-transparent'
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
@@ -95,7 +95,7 @@ export default function Navbar() {
             animate={reducedMotion ? { opacity: 1 } : { opacity: 1, height: 'auto' }}
             exit={reducedMotion ? { opacity: 0 } : { opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="overflow-hidden bg-card shadow-lg backdrop-blur-md md:hidden"
+            className="glass overflow-hidden md:hidden"
           >
             {NAV_LINKS.map((link) => (
               <li key={link.id}>

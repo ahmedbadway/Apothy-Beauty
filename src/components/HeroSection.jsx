@@ -25,7 +25,11 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative flex min-h-svh items-center justify-center px-4">
-      <div className="absolute inset-0 scrim-soft" aria-hidden="true" />
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: 'var(--color-overlay)' }}
+        aria-hidden="true"
+      />
       <motion.div
         variants={container}
         initial="hidden"
@@ -34,19 +38,19 @@ export default function HeroSection() {
       >
         <motion.p
           variants={item}
-          className="mb-5 inline-block rounded-full border border-border bg-card px-4 py-1.5 text-sm font-semibold tracking-wide text-sage-deep"
+          className="glass mb-5 inline-block rounded-full px-4 py-1.5 text-sm font-semibold tracking-wide text-sage-deep"
         >
           {t.hero.tagline}
         </motion.p>
         <motion.h1
           variants={item}
-          className="display mb-6 text-[clamp(2.5rem,7vw,4.5rem)] text-brown-deep"
+          className="display on-glass mb-6 text-[clamp(2.5rem,7vw,4.5rem)] text-brown-deep"
         >
           {t.hero.title}
         </motion.h1>
         <motion.p
           variants={item}
-          className="measure mx-auto mb-8 text-lg leading-relaxed text-text-soft sm:text-xl"
+          className="measure on-glass mx-auto mb-8 text-lg leading-relaxed text-text sm:text-xl"
         >
           {t.hero.subtitle}
         </motion.p>

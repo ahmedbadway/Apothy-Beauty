@@ -72,10 +72,10 @@ export default function IngredientsSection() {
       />
       <div className="relative mx-auto max-w-5xl">
         <motion.div {...reveal(reducedMotion)} className="mb-12 text-center">
-          <h2 className="display mb-3 text-3xl text-brown-deep sm:text-4xl">
+          <h2 className="display on-glass mb-3 text-3xl text-brown-deep sm:text-4xl">
             {t.ingredients.title}
           </h2>
-          <p className="text-lg text-text-soft">{t.ingredients.subtitle}</p>
+          <p className="on-glass text-lg text-text-soft">{t.ingredients.subtitle}</p>
         </motion.div>
 
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
@@ -87,9 +87,9 @@ export default function IngredientsSection() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: index * 0.07, ease: EASE_OUT_QUINT }}
               whileHover={reducedMotion ? undefined : { y: -4 }}
-              className="flex flex-col items-center rounded-2xl border border-border bg-card p-5 text-center shadow-md transition-shadow duration-300 hover:shadow-lg"
+              className="glass flex flex-col items-center rounded-2xl p-5 text-center"
             >
-              <div className="relative mb-3 h-16 w-16 overflow-hidden rounded-full bg-cream ring-1 ring-border">
+              <div className="relative mb-3 h-16 w-16 overflow-hidden rounded-full ring-1 ring-border">
                 {/* icon fallback behind the photo */}
                 <svg
                   viewBox="0 0 48 48"

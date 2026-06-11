@@ -17,10 +17,10 @@ export default function ProductsSection() {
       />
       <div className="relative mx-auto max-w-6xl">
         <motion.div {...reveal(reducedMotion)} className="mb-12 text-center">
-          <h2 className="display mb-3 text-3xl text-brown-deep sm:text-4xl">
+          <h2 className="display on-glass mb-3 text-3xl text-brown-deep sm:text-4xl">
             {t.products.title}
           </h2>
-          <p className="text-lg text-text-soft">{t.products.subtitle}</p>
+          <p className="on-glass text-lg text-text-soft">{t.products.subtitle}</p>
         </motion.div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
