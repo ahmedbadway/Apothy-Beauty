@@ -86,7 +86,11 @@ export default function IngredientsSection() {
               whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: index * 0.07, ease: EASE_OUT_QUINT }}
-              whileHover={reducedMotion ? undefined : { y: -4 }}
+              whileHover={
+                reducedMotion
+                  ? undefined
+                  : { y: -4, transition: { duration: 0.18, ease: EASE_OUT_QUINT } }
+              }
               className="glass flex flex-col items-center rounded-2xl p-5 text-center"
             >
               <div className="relative mb-3 h-16 w-16 overflow-hidden rounded-full ring-1 ring-border">

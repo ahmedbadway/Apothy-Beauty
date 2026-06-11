@@ -14,7 +14,11 @@ export default function ProductCard({ product, index }) {
       whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: EASE_OUT_QUINT }}
-      whileHover={reducedMotion ? undefined : { y: -6 }}
+      whileHover={
+        reducedMotion
+          ? undefined
+          : { y: -6, transition: { duration: 0.2, ease: EASE_OUT_QUINT } }
+      }
       className="glass group relative flex flex-col overflow-hidden rounded-3xl"
     >
       {onSale && (
