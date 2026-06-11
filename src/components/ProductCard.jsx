@@ -2,30 +2,6 @@ import { motion, useReducedMotion } from 'motion/react'
 import { useLanguage } from '../context/LanguageContext'
 import { buildOrderLink } from '../config/site'
 
-// Product image placeholder — final asset path comes from product.image,
-// e.g. public/images/products/hair-oil-100ml.jpg (~800×800)
-function ProductPlaceholder({ variant }) {
-  const isRoller = variant === 'derma-roller'
-  return (
-    <svg viewBox="0 0 400 300" className="h-full w-full" role="img" aria-hidden="true">
-      <rect width="400" height="300" fill="var(--color-cream)" />
-      {isRoller ? (
-        <g stroke="var(--color-brown)" strokeWidth="6" strokeLinecap="round" fill="none">
-          <rect x="150" y="70" width="100" height="60" rx="14" fill="var(--color-sage)" />
-          <line x1="200" y1="130" x2="200" y2="230" />
-          <circle cx="200" cy="100" r="6" fill="var(--color-offwhite)" stroke="none" />
-        </g>
-      ) : (
-        <g>
-          <rect x="165" y="60" width="70" height="170" rx="16" fill="var(--color-sage)" />
-          <rect x="180" y="35" width="40" height="30" rx="6" fill="var(--color-brown)" />
-          <rect x="175" y="110" width="50" height="70" rx="8" fill="var(--color-offwhite)" />
-        </g>
-      )}
-    </svg>
-  )
-}
-
 export default function ProductCard({ product, index }) {
   const { lang, t } = useLanguage()
   const reducedMotion = useReducedMotion()
@@ -38,7 +14,7 @@ export default function ProductCard({ product, index }) {
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.55, delay: index * 0.12, ease: 'easeOut' }}
       whileHover={reducedMotion ? undefined : { y: -6 }}
-      className="relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition-shadow duration-300 hover:shadow-xl"
+      className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition-shadow duration-300 hover:shadow-xl"
     >
       {onSale && (
         <span className="absolute top-4 start-4 z-10 rounded-full bg-sale px-3 py-1 text-sm font-bold text-offwhite">
@@ -46,8 +22,13 @@ export default function ProductCard({ product, index }) {
         </span>
       )}
 
-      <div className="aspect-4/3 w-full overflow-hidden">
-        <ProductPlaceholder variant={product.id} />
+      <div className="aspect-4/3 w-full overflow-hidden bg-cream">
+        <img
+          src={`${import.meta.env.BASE_URL}${product.image}`}
+          alt={product.name[lang]}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
 
       <div className="flex flex-1 flex-col p-6">
