@@ -39,13 +39,13 @@ export default function HeroSection() {
         </motion.p>
         <motion.h1
           variants={item}
-          className="display on-glass mb-6 text-[clamp(2.5rem,7vw,4.5rem)] text-brown-deep"
+          className="display mb-6 text-[clamp(2.5rem,7vw,4.5rem)] text-brown-deep"
         >
           {t.hero.title}
         </motion.h1>
         <motion.p
           variants={item}
-          className="measure on-glass mx-auto mb-8 text-lg leading-relaxed text-text sm:text-xl"
+          className="measure mx-auto mb-8 text-lg leading-relaxed text-text sm:text-xl"
         >
           {t.hero.subtitle}
         </motion.p>

@@ -41,10 +41,10 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative px-4 py-20 sm:py-28">
       <motion.div {...reveal(reducedMotion)} className="relative mx-auto max-w-2xl text-center">
-        <h2 className="display on-glass mb-3 text-3xl text-brown-deep sm:text-4xl">
+        <h2 className="display mb-3 text-3xl text-brown-deep sm:text-4xl">
           {t.contact.title}
         </h2>
-        <p className="on-glass mb-10 text-lg text-text-soft">{t.contact.subtitle}</p>
+        <p className="mb-10 text-lg text-text-soft">{t.contact.subtitle}</p>
 
         <motion.a
           href={buildWhatsAppLink(t.contact.whatsappMessage)}

@@ -25,10 +25,10 @@ export default function TestimonialsSection() {
     <section className="relative px-4 py-20 sm:py-28">
       <div className="relative mx-auto max-w-5xl">
         <motion.div {...reveal(reducedMotion)} className="mb-12 text-center">
-          <h2 className="display on-glass mb-3 text-3xl text-brown-deep sm:text-4xl">
+          <h2 className="display mb-3 text-3xl text-brown-deep sm:text-4xl">
             {t.testimonials.title}
           </h2>
-          <p className="on-glass text-lg text-text-soft">{t.testimonials.subtitle}</p>
+          <p className="text-lg text-text-soft">{t.testimonials.subtitle}</p>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-3">
